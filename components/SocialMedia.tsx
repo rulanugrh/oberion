@@ -16,7 +16,7 @@ export default function SocialMedia() {
 
                             <div className="flex -mx-2">
                                 {socialMedia.map((social) => (
-                                    <Link href={social.link} className="mx-2 transition-colors duration-300 w-5 h-5">
+                                    <Link href={social.link} className="mx-2 transition-colors duration-300 w-5 h-5" key={social.id}>
                                         <img src={social.img} alt="social-media"/>
                                     </Link>
                                 ))}
