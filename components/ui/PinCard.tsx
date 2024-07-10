@@ -1,167 +1,388 @@
 "use client";
-
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, animate } from "framer-motion";
 import { cn } from "@/utils/cn";
-import Link from "next/link";
+import { SiCloudflare, SiDocker, SiGo, SiGrafana, SiNginx, SiOpentelemetry, SiPhp, SiPostgresql, SiPrometheus, SiPython } from "react-icons/si";
 
-export const PinContainer = ({
-  children,
-  title,
-  href,
-  className,
-  containerClassName,
-}: {
-  children: React.ReactNode;
-  title?: string;
-  href?: string;
-  className?: string;
-  containerClassName?: string;
-}) => {
-  const [transform, setTransform] = useState(
-    "translate(-50%,-50%) rotateX(0deg)"
-  );
+export const SkeletonCressida = () => {
+  const scale = [1, 1.1, 1];
+  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+  const sequence = [
+    [
+      ".circle-1",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-2",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-3",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-4",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-5",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+  ];
 
-  const onMouseEnter = () => {
-    setTransform("translate(-50%,-50%) rotateX(40deg) scale(0.8)");
-  };
-  const onMouseLeave = () => {
-    setTransform("translate(-50%,-50%) rotateX(0deg) scale(1)");
-  };
-
+  useEffect(() => {
+    // @ts-ignore
+    animate(sequence, {
+      repeat: Infinity,
+      repeatDelay: 1,
+    });
+  }, []);
   return (
-    <Link
-      className={cn(
-        "relative group/pin z-50  cursor-pointer",
-        containerClassName
-      )}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      href={href || "/"}
-    >
-      <div
-        style={{
-          perspective: "1000px",
-          transform: "rotateX(70deg) translateZ(0deg)",
-        }}
-        className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
-      >
-        <div
-          style={{
-            transform: transform,
-          }}
-          className="absolute left-1/2 p-4 top-1/2  flex justify-start items-start  rounded-2xl  shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
-        >
-          <div className={cn(" relative z-50 ", className)}>{children}</div>
+    <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
+      <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
+        <Container className="h-8 w-8 circle-1">
+          <SiPostgresql fill="#4169E1" className="h-4 w-4 " />
+        </Container>
+        <Container className="h-12 w-12 circle-2">
+          <SiGo fill="#00ADD8" className="h-6 w-6 dark:text-white" />
+        </Container>
+        <Container className="circle-3">
+          <SiOpentelemetry fill="#2496ED" className="h-8 w-8 dark:text-white" />
+        </Container>
+        <Container className="h-12 w-12 circle-4">
+          <SiPrometheus fill="#E6522C" className="h-6 w-6 " />
+        </Container>
+        <Container className="h-8 w-8 circle-5">
+          <SiGrafana fill="#F46800" className="h-4 w-4 " />
+        </Container>
+      </div>
+
+      <div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+          <Sparkles />
         </div>
       </div>
-      <PinPerspective title={title} href={href} />
-    </Link>
+    </div>
   );
 };
 
-export const PinPerspective = ({
-  title,
-  href,
-}: {
-  title?: string;
-  href?: string;
-}) => {
+export const SkeletonMars = () => {
+  const scale = [1, 1.1, 1];
+  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+  const sequence = [
+    [
+      ".circle-1",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-2",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-3",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-4",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-5",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+  ];
+
+  useEffect(() => {
+    // @ts-ignore
+    animate(sequence, {
+      repeat: Infinity,
+      repeatDelay: 1,
+    });
+  }, []);
   return (
-    <motion.div className="pointer-events-none  w-full h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
-      <div className=" w-full h-full -mt-7 flex-none  inset-0">
-        <div className="absolute top-0 inset-x-0  flex justify-center">
-          <a
-            href={href}
-            target={"_blank"}
-            className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 "
-          >
-            <span className="relative z-20 text-white text-xs font-bold inline-block py-0.5">
-              {title}
-            </span>
+    <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
+      <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
+        <Container className="h-8 w-8 circle-1">
+          <SiDocker fill="#2496ED" className="h-4 w-4 " />
+        </Container>
+        <Container className="h-12 w-12 circle-2">
+          <SiGo fill="#00ADD8" className="h-6 w-6 dark:text-white" />
+        </Container>
+        <Container className="circle-3">
+          <SiPhp fill="#777BB4" className="h-8 w-8 dark:text-white" />
+        </Container>
+        <Container className="h-12 w-12 circle-4">
+          <SiPython fill="#3776AB" className="h-6 w-6 " />
+        </Container>
+        <Container className="h-8 w-8 circle-5">
+          <SiNginx fill="#009639" className="h-4 w-4 " />
+        </Container>
+      </div>
 
-            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
-          </a>
-        </div>
-
-        <div
-          style={{
-            perspective: "1000px",
-            transform: "rotateX(70deg) translateZ(0)",
-          }}
-          className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
-        >
-          <div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0,
-                x: "-50%",
-                y: "-50%",
-              }}
-              animate={{
-                opacity: [0, 1, 0.5, 0],
-                scale: 1,
-
-                z: 0,
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                delay: 0,
-              }}
-              className="absolute left-1/2 top-1/2  h-[11.25rem] w-[11.25rem] rounded-[50%] bg-sky-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
-            ></motion.div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0,
-                x: "-50%",
-                y: "-50%",
-              }}
-              animate={{
-                opacity: [0, 1, 0.5, 0],
-                scale: 1,
-
-                z: 0,
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                delay: 2,
-              }}
-              className="absolute left-1/2 top-1/2  h-[11.25rem] w-[11.25rem] rounded-[50%] bg-sky-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
-            ></motion.div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0,
-                x: "-50%",
-                y: "-50%",
-              }}
-              animate={{
-                opacity: [0, 1, 0.5, 0],
-                scale: 1,
-
-                z: 0,
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                delay: 4,
-              }}
-              className="absolute left-1/2 top-1/2  h-[11.25rem] w-[11.25rem] rounded-[50%] bg-sky-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
-            ></motion.div>
-          </div>
-        </div>
-
-        <div>
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40  " />
-          <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-cyan-600 translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
-          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-cyan-300 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40 " />
+      <div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+          <Sparkles />
         </div>
       </div>
-    </motion.div>
+    </div>
+  );
+};
+
+export const SkeletonGanymede = () => {
+  const scale = [1, 1.1, 1];
+  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+  const sequence = [
+    [
+      ".circle-1",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-2",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-3",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-4",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+    [
+      ".circle-5",
+      {
+        scale,
+        transform,
+      },
+      { duration: 0.8 },
+    ],
+  ];
+
+  useEffect(() => {
+    // @ts-ignore
+    animate(sequence, {
+      repeat: Infinity,
+      repeatDelay: 1,
+    });
+  }, []);
+  return (
+    <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
+      <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
+        <Container className="h-8 w-8 circle-1">
+          <SiDocker fill="#2496ED" className="h-4 w-4 " />
+        </Container>
+        <Container className="h-12 w-12 circle-2">
+          <SiGo fill="#00ADD8" className="h-6 w-6 dark:text-white" />
+        </Container>
+        <Container className="circle-3">
+          <SiCloudflare fill="#F38020" className="h-8 w-8 dark:text-white" />
+        </Container>
+        <Container className="h-12 w-12 circle-4">
+          <SiPostgresql fill="#4169E1" className="h-6 w-6 " />
+        </Container>
+        <Container className="h-8 w-8 circle-5">
+          <SiNginx fill="#009639" className="h-4 w-4 " />
+        </Container>
+      </div>
+
+      <div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+          <Sparkles />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Sparkles = () => {
+  const randomMove = () => Math.random() * 2 - 1;
+  const randomOpacity = () => Math.random();
+  const random = () => Math.random();
+  return (
+    <div className="absolute inset-0">
+      {[...Array(12)].map((_, i) => (
+        <motion.span
+          key={`star-${i}`}
+          animate={{
+            top: `calc(${random() * 100}% + ${randomMove()}px)`,
+            left: `calc(${random() * 100}% + ${randomMove()}px)`,
+            opacity: randomOpacity(),
+            scale: [1, 1.2, 0],
+          }}
+          transition={{
+            duration: random() * 2 + 4,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            position: "absolute",
+            top: `${random() * 100}%`,
+            left: `${random() * 100}%`,
+            width: `2px`,
+            height: `2px`,
+            borderRadius: "50%",
+            zIndex: 1,
+          }}
+          className="inline-block bg-black-100 dark:bg-white"
+        ></motion.span>
+      ))}
+    </div>
+  );
+};
+
+export const Card = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "max-w-sm w-full mx-auto p-8 rounded-xl border border-[rgba(255,255,255,0.10)] bg-black-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const CardTitle = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <h3
+      className={cn(
+        "text-lg font-semibold text-gray-800 dark:text-white py-2",
+        className
+      )}
+    >
+      {children}
+    </h3>
+  );
+};
+
+export const CardDescription = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <p
+      className={cn(
+        "text-sm font-normal text-neutral-600 dark:text-neutral-400 max-w-sm",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
+};
+
+export const CardSkeletonContainer = ({
+  className,
+  children,
+  showGradient = true,
+}: {
+  className?: string;
+  children: React.ReactNode;
+  showGradient?: boolean;
+}) => {
+  return (
+    <div
+      className={cn(
+        "h-[15rem] md:h-[20rem] rounded-xl z-40",
+        className,
+        showGradient &&
+          "bg-neutral-300 dark:bg-[rgba(40,40,40,0.70)] [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+const Container = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        `h-16 w-16 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)]
+    shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)]
+    `,
+        className
+      )}
+    >
+      {children}
+    </div>
   );
 };

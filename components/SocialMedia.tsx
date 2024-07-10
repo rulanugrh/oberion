@@ -8,7 +8,7 @@ export default function SocialMedia() {
             <hr className="my-3 border-gray-300 dark:border-gray-700 sm:mx-auto dark:border-putih lg:my-3"></hr>
             <section id="contact" className="pt-4 pb-4">
                 <div className="container">
-                    <div className="max-w-7xl mx-auto px-4">
+                    <div className="ma-w-7xl mx-auto px-4">
                         <div className="flex items-center justify-between">
                             <Link href="#">
                                 <h1 className="font-bold text-white text-lg">Pradana.</h1>

@@ -20,7 +20,7 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "16px",
       screens: {
         "2xl": "1400px",
       },
@@ -82,6 +82,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        move: {
+          "0%": { transform: "translateX(-200px)" },
+          "100%": { transform: "translateX(200px)" },
+        },
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
           "70%": { opacity: "1" },
@@ -166,6 +170,7 @@ const config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        move: "move 5s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         
@@ -174,6 +179,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("flowbite/plugin"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
