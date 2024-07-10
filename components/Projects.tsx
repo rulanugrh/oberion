@@ -8,7 +8,7 @@ import { SiGithub } from "react-icons/si";
 export function CardDemo() {
   return (
     <section id="projects" className="pt-36 pb-36">
-        <div className="heading mb-10 px-4 lg:mb-20">
+        <div className="lg:heading text-center text-lg mb-10 px-4 lg:mb-20">
                 A small selection of {' '}
                 <span className="text-[#A3D8FF]">recent project</span>
         </div>
