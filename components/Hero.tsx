@@ -28,7 +28,7 @@ export default function Hero() {
             words="Hi, I'm Pradana DevSecOps Enthusiast and Backend Developer"
           />
           <p className="text-center mb-4 text-xs md:text-base lg:text-xl font-extralight">
-            Currently I have 1+ years experience use Golang and Typescript for
+            Currently, I have 1+ years experience in using Golang and Typescript for
             Developing API
           </p>
 
