@@ -33,6 +33,6 @@ export const socialMedia = [
     {
         id: 3,
         img: "/link.svg",
-        link: "https://www.linkedin.com/in/rulanugrh/"
+        link: "https://www.linkedin.com/"
     },
 ];
