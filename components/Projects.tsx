@@ -4,10 +4,22 @@ import { Card, CardSkeletonContainer, CardDescription, CardTitle, SkeletonCressi
 import { projects } from "@/data";
 import Button from "./ui/Button";
 import { SiGithub } from "react-icons/si";
+import { Spotlight } from "./ui/Spotlight";
 
-export function CardDemo() {
+export function Projects() {
   return (
     <section id="projects" className="pt-36 pb-36">
+        <div className="overflow-x-hidden">
+            <Spotlight
+            className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
+            fill="white"
+            />
+            <Spotlight
+            className="top-80 left-12 h-[100vh] w-[100vw]"
+            fill="purple"
+            />
+            <Spotlight className="top-28 h-[80vh] w-[50vw]" fill="blue" />
+        </div>
         <div className="lg:heading text-center text-lg mb-10 px-4 lg:mb-20">
                 A small selection of {' '}
                 <span className="text-[#A3D8FF]">recent project</span>

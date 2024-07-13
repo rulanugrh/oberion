@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react"
+import Link from "next/link"
 
 export default function Navbar() {
     const [isClick, setIsClick ] = useState(false)
@@ -19,10 +20,11 @@ export default function Navbar() {
                         </div>
                         <div className="hidden md:block">
                             <div className="ml-4 flex items-center space-x-8">
-                                <a href="#home" className="text-white font-medium text-base">Home</a>
-                                <a href="#about" className="text-white font-medium text-base">About</a>
-                                <a href="#projects" className="text-white font-medium text-base">Project</a>
-                                <a href="#contact" className="text-white font-medium text-base">Contact</a>
+                                <Link href={"/"} className="text-white font-medium hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 text-base">Home</Link>
+                                <Link href={"/about"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 font-medium text-base">About</Link>
+                                <Link href={"/projects"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 font-medium text-base">Project</Link>
+                                <Link href={"/blog"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 font-medium text-base">Blog</Link>
+                                <Link href={"/contact"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 font-medium text-base">Contact</Link>
                             </div>
                         </div>
                         <div className="md:hidden flex items-center">
@@ -43,10 +45,11 @@ export default function Navbar() {
                 {isClick && (
                     <div className="md:hidden">
                         <div className="px-4 pt-2 pb-3 space-y-3 sm:px-4">
-                            <a href="#home" className="text-white block font-medium text-base">Home</a>
-                            <a href="#About" className="text-white block font-medium text-base">About</a>
-                            <a href="#project" className="text-white block font-medium text-base">Project</a>
-                            <a href="#contact" className="text-white block font-medium text-base">Contact</a>
+                            <Link href={"/"} className="text-white block hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 font-medium text-base">Home</Link>
+                            <Link href={"/about"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 block font-medium text-base">About</Link>
+                            <Link href={"/projects"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 block font-medium text-base">Project</Link>
+                            <Link href={"/blog"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 block font-medium text-base">Blog</Link>
+                            <Link href={"/contact"} className="text-white hover:bg-[#A3D8FF] hover:text-black-100 hover:px-3 hover:py-2 hover:rounded-lg transition-all duration-300 block font-medium text-base">Contact</Link>
                         </div>
                     </div>
                 )}
