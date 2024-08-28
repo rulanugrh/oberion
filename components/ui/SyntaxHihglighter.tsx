@@ -147,6 +147,10 @@ export const Certificates = () => {
         {
             "name": "3rd Place in the XXIX National Level Student Competency Competition in the Field of Cybersecurity",
             "expired": "Oct 2024"
+        },
+        {
+            "name": "Database Design & Database Programming with SQL (DTS)",
+            "expired": "Jul 2026"
         }
     ]
     `
