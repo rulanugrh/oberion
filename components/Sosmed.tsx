@@ -18,7 +18,7 @@ const SkeletonOne = () => {
       </a>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Don't forget to my follow instagram hehehe :u.
+        Don&apos;t forget to my follow instagram hehehe :u.
       </p>
     </div>
   );
@@ -45,7 +45,7 @@ const SkeletonThree = () => {
       </a>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        You want learn about k8s?. Don't forget to follow me hehhee :u
+        You want learn about k8s?. Don&apos;t forget to follow me hehhee :u
       </p>
     </div>
   );
@@ -58,7 +58,7 @@ const SkeletonFour = () => {
       </a>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-      Sometimes I like pixel art design, but now I'm lazy to do it :u.
+      Sometimes I like pixel art design, but now I&apos;m lazy to do it :u.
       </p>
     </div>
   );
