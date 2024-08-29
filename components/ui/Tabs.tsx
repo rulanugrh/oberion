@@ -2,8 +2,9 @@
 
 import React, { useState } from "react"
 
-import {SiGo, SiTypescript, SiPython} from "react-icons/si"
+import {SiGo, SiTypescript, SiPython, SiAseprite} from "react-icons/si"
 import { Certificates, Experience, TechStack } from './SyntaxHihglighter';
+import { LayoutGridSosmed } from "../Sosmed";
 
 export default function Tabs() {
     const [toggleState, setToggleState] = useState(1)
@@ -30,6 +31,11 @@ export default function Tabs() {
                             <SiPython fill="#3776AB" className="w-5 h-5 mr-3" /> certif.py
                         </div>
                     </button>
+                    <button className={ toggleState === 4 ? "inline-block px-7 py-2 hover:bg-[#A3D8FF] bg-[#A3D8FF] text-black-100 rounded-lg": "inline-block px-7 py-2 rounded-lg"} onClick={() => toggleTab(4)} >
+                        <div className="flex flex-wrap">
+                            <SiAseprite fill="#7D929E" className="w-5 h-5 mr-3" /> sosmed.ase
+                        </div>
+                    </button>
                 </li>
             </ul>
             <div id="default-tab-content">
@@ -39,8 +45,11 @@ export default function Tabs() {
                 <div className={toggleState === 2 ? "" :"hidden"} >
                     <Experience />
                 </div>
-                <div className={toggleState === 3 ? "" :"hidden"} id="certif" role="tabpanel" aria-labelledby="certificate-tab">
+                <div className={toggleState === 3 ? "" :"hidden"} >
                     <Certificates />
+                </div>
+                <div className={toggleState === 4 ? "" :"hidden"}>
+                    <LayoutGridSosmed />
                 </div>
             </div>
         </div>
