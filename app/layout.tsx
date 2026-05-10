@@ -6,8 +6,11 @@ import { ThemeProvider } from "./provider";
 const inter = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kyora Portofolio",
+  title: "Pradana - Portofolio",
   description: "Hi, welcome to my portfolio",
+  icons: {
+    icon: "/oberion.webp"
+  }
 };
 
 export default function RootLayout({
