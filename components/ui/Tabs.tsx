@@ -4,7 +4,7 @@ import React, { useState } from "react"
 
 import {SiGo, SiTypescript, SiPython, SiAseprite} from "react-icons/si"
 import { Certificates, Experience, TechStack } from './SyntaxHihglighter';
-import { LayoutGridSosmed } from "../Sosmed";
+import { LayoutGridSosmed } from "./Sosmed";
 
 export default function Tabs() {
     const [toggleState, setToggleState] = useState(1)

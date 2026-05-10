@@ -5,12 +5,10 @@ import Hero from '../components/Hero'
 // import SocialMedia from '../components/SocialMedia';
 export default function Home() {
   return (
-    <main className="bg-black-100">
+    <main >
       <Navbar />
       <Hero />
-      {/* <About /> */}
-      {/* <CardDemo /> */}
-      {/* <SocialMedia /> */}
+ 
     </main>
   );
 }

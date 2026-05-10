@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar"
 export default function NotFound() {
     return (
-        <div className="bg-black-100">
+        <div >
             <Navbar />
             <div className="container pt-48 pb-48 flex items-center text-center justify-center">
                 <div className="max-w-3xl my-64 mx-auto">

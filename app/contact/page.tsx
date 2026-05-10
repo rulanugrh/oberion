@@ -1,11 +1,11 @@
+import ContactPage from "@/components/Contact"
 import Navbar from "@/components/Navbar"
-import About from "@/components/About"
-export default function Abouts() {
+export default function Contacts() {
     return (
         <div className="w-full h-full">
             <Navbar />
 
-            <About />
+            <ContactPage />
         </div>
     )
 }

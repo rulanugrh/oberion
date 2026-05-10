@@ -1,38 +1,37 @@
 export const projects = [
-  {
-      id: 1,
-      title: "Ganymede",
-      des: "My Freelance project, create service with PostgreSQL and Golang.",
-      link: "https://github.com/rulanugrh/ganymede",
+{
+    id: 1,
+    title: "Phabos",
+    des: "My Freelance project, about implementation Project Integration with Firestore and Tripay",
+    link: "https://github.com/rulanugrh/phabos",
+    repo: "rulanugrh/phabos",
   },
   {
-      id: 2,
-      title: "Cressida",
-      des: "API Service with implementation about prometheus opentelemetry",
-      link: "https://github.com/rulanugrh/cressida",
+    id: 2,
+    title: "Arche",
+    des: "Tools for calculate ipv4 in CLI build from golang",
+    link: "https://github.com/rulanugrh/arche",
+    repo: "rulanugrh/arche",
   },
   {
-      id: 3,
-      title: "Mars",
-      des: "Some best practices wrapping application with docker",
-      link: "https://github.com/rulanugrh/mars",
+    id: 3,
+    title: "Megaclite",
+    des: "Megaclite An innovative webmail service that combines the convenience of email usage with a very high level of security through OpenPGP encryption",
+    link: "https://github.com/rulanugrh/megaclite",
+    repo: "rulanugrh/megaclite",
   },
-];
-  
-export const socialMedia = [
-    {
-        id: 1,
-        img: "/git.svg",
-        link: "https://github.com/rulanugrh"
-    },
-    {
-        id: 2,
-        img: "/twit.svg",
-        link: "https://twitter.com/rulanugrh"
-    },
-    {
-        id: 3,
-        img: "/link.svg",
-        link: "https://www.linkedin.com/"
-    },
+  {
+    id: 4,
+    title: "Mars",
+    des: "Some best practices wrapping application with docker",
+    link: "https://github.com/rulanugrh/mars",
+    repo: "rulanugrh/mars",
+  },
+  {
+    id: 4,
+    title: "Porto Particle JS",
+    des: "Its simple portfolio with particle JS",
+    link: "https://github.com/rulanugrh/rulanugrh.github.io",
+    repo: "rulanugrh/rulanugrh.github.io",
+  },
 ];
