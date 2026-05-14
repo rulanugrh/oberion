@@ -39,7 +39,7 @@ export default function BlogPage() {
             Blog
           </p>
           <h1 className="text-[#f0ede8] font-semibold text-2xl md:text-3xl tracking-tight leading-none mb-6">
-            Writing down what's on my mind
+            Writing down what&apos;s on my mind
           </h1>
           <div className="h-px bg-[#2a2a2a]" />
         </div>
