@@ -28,7 +28,7 @@ export default function ContactPage() {
 
 
             {/* ── Content ── */}
-            <div className="relative z-10 max-w-7xl mx-auto">
+            <div className="relative z-10 max-w-6xl mx-auto">
 
                 {/* Heading */}
                 <div className="text-center mb-14">

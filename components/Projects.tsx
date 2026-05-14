@@ -65,9 +65,8 @@ export default async function Projects() {
   )
 
   return (
-    <main className="min-h-screen px-5 py-20 overflow-x-hidden">
+    <main className="min-h-screen pb-24 pt-24 overflow-x-hidden">
 
-      {/* ── Spotlight effects ── */}
       <div className="overflow-x-hidden">
         <Spotlight
           className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -83,21 +82,18 @@ export default async function Projects() {
         />
       </div>
 
-      {/* ── Content ── */}
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="relative z-10 max-w-4xl px-5 mx-auto">
 
-        {/* ── Header ── */}
         <div className="mb-14">
           <p className="text-[#888580] text-xs tracking-[0.15em] uppercase mb-3 font-medium">
-            Selected Work
-          </p>
-          <h1 className="text-[#f0ede8] font-semibold text-4xl md:text-5xl tracking-tight leading-none mb-6">
             Projects
+          </p>
+          <h1 className="text-[#f0ede8] font-semibold text-2xl md:text-3xl tracking-tight leading-none mb-6">
+            Selected project i've maintain
           </h1>
           <div className="h-px bg-[#2a2a2a]" />
         </div>
 
-        {/* ── Project List ── */}
         <div className="flex flex-col">
           {projects.map((project, i) => {
             const gh   = repoData[i]
@@ -109,20 +105,16 @@ export default async function Projects() {
                 key={project.id}
                 className="group relative py-8 border-b border-[#1e1e1e] last:border-none"
               >
-                {/* hover bg */}
                 <div className="absolute inset-x-[-1rem] inset-y-0 rounded-xl bg-[#1c1c1c] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
 
                 <div className="flex items-start gap-6">
 
-                  {/* Number */}
                   <span className="text-[#2a2a2a] group-hover:text-[#3a3a3a] font-semibold text-3xl leading-none mt-1 select-none w-8 shrink-0 transition-colors duration-300">
                     {String(project.id).padStart(2, "0")}
                   </span>
 
-                  {/* Content */}
                   <div className="flex-1 min-w-0">
 
-                    {/* Title + View button */}
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <h2 className="text-[#f0ede8] font-semibold text-xl tracking-tight">
                         {project.title}
@@ -139,12 +131,10 @@ export default async function Projects() {
                       </a>
                     </div>
 
-                    {/* Description */}
                     <p className="text-[#888580] text-sm leading-relaxed mb-4">
                       {project.des}
                     </p>
 
-                    {/* Meta chips */}
                     <div className="flex items-center flex-wrap gap-2">
 
                       {lang && dot && (
@@ -187,7 +177,6 @@ export default async function Projects() {
           })}
         </div>
 
-        {/* ── Footer ── */}
         <div className="mt-14 flex items-center justify-between">
           <span className="text-[#888580] text-xs tracking-wide">
             {projects.length} projects

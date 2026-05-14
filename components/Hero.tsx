@@ -3,11 +3,6 @@
 import { Spotlight } from "./ui/Spotlight"
 import { TextGenerateEffect } from "./ui/TextGenerateEffect"
 
-const stats = [
-  { value: "1+", label: "Years Experience" },
-  { value: "10+", label: "Projects Built" },
-  { value: "2", label: "Certifications" },
-]
 
 export default function Hero() {
   return (
@@ -31,16 +26,12 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── Dot grid ── */}
       <div className="absolute inset-0 pointer-events-none" />
 
-      {/* ── Gradient vignette bottom ── */}
       <div className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none" />
 
-      {/* ── Main content ── */}
       <div className="relative flex flex-col items-center justify-center text-center px-5 py-6 w-full max-w-4xl mx-auto">
 
-        {/* Status pill */}
         <div
           className="flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 text-xs font-medium"
           style={{
@@ -53,12 +44,10 @@ export default function Hero() {
           Currently Work on Neosoft
         </div>
 
-        {/* Role label */}
         <p className="uppercase tracking-[0.25em] text-xs text-[#888580] mb-5 font-medium">
           Backend Engineer · DevSecOps Enthusiast · Asst. Project Manager
         </p>
 
-        {/* Main heading */}
         <div className="mb-4 w-full">
           <TextGenerateEffect
             className="text-[#f0ede8] text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08]"
@@ -66,7 +55,6 @@ export default function Hero() {
           />
         </div>
 
-        {/* Sub heading */}
         <p className="text-[#888580] text-sm md:text-base lg:text-lg font-light max-w-xl leading-relaxed mb-4">
           Crafting backend systems with{" "}
           <span className="text-[#00ADD8] font-medium">
@@ -78,21 +66,6 @@ export default function Hero() {
           </span>
           . Building APIs that scale, systems that hold.
         </p>
-
-        {/* ── Stats row ── */}
-        <div className="flex items-center gap-6 mb-6 mt-4">
-          {stats.map((s, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <span className="text-[#f0ede8] font-semibold text-xl tracking-tight">
-                {s.value}
-              </span>
-
-              <span className="text-[#888580] text-[11px] tracking-wide uppercase mt-0.5">
-                {s.label}
-              </span>
-            </div>
-          ))}
-        </div>
 
       </div>
 
