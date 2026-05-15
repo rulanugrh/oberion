@@ -1,0 +1,105 @@
+---
+title: "Laravel Blade: How to Implement layouts in blade?"
+description: "best case to implement layouts for ur website"
+created_at: "2025-05-14"
+tags: ["laravel-blade", "laravel"]
+---
+
+<img src="/blog/banner-lara-blade.webp" alt="banner" style={{ borderRadius: '5px' }} />
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" />
+
+In 2026, we know that Laravel remains a framework frequently used by developers when building applications on a tight schedule.
+Laravel support many libraries, makin it just as robust in terms of design. In laravel, the `resources` folder is where developers store the UI source code that user will eventually see. 
+
+In the latest version of Laravel, we can set up each layout to be clean. As we know, previously, when we called a Laravel layout, it looked like this
+
+```blade
+@includes('layouts.app')
+@section('content')
+    <div>
+        {{-- content --}}
+    </div>
+@endsection
+```
+In the latest version, we can utilize what’s called `View/Components` from Laravel itself. You simply need to run the command `php artisan make:component [LayoutName]`, for example: 
+
+```console
+hangteabin@chentaury:~/lara-example$ php artisan make:component ExampleLayout
+hangteabin@chentaury:~/lara-example$ 
+```
+From here, Laravel will generate two files automatically. We’ll focus on the file stored in the `app/View/Components` folder. This is the section we’ll customize
+
+```php
+<?php
+
+namespace App\View\Components;
+
+use Closure;
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
+class ExampleLayout extends Component
+{
+    /**
+     * Create a new component instance.
+     * This function is often used by developers to set variables that will be used later in the component
+     * example case, i will setup title variable, and we can set default value for that variable
+     */
+    
+    public function __construct(
+        public string $title = 'default value'
+    )
+    {
+        //
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     */
+    public function render(): View|Closure|string
+    {
+        // In this section, you call the layout file you’ve created
+        return view('layouts.example');
+    }
+}
+```
+After you’ve customized it, you can call it using `x-example-layout`. Based on the file you’ve created, this method is often used by developers to simplify the process of applying layouts with a minimalist shortcut
+```blade
+<x-example-layout title='Title of Layout'>
+    {{-- content --}}
+</x-example-layout>
+```
+If you set up variables in the `__construct` function, make sure the same variables are present in the layout. Once confirmed, you can use the layout as shown in the example above
+```blade
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
+
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    {{-- you can use any component in your layout --}}
+    <!-- @include('components.navbar') -->
+
+    <main>
+        {{-- example useable variable title, this variable will be return if you set in __construct function --}}
+        <h1 class="text-xl font-semibold text-slate-900">{{ $title }}</h1>
+
+        {{-- set sloth for your content section --}}
+        {{ $sloth }}
+    </main>
+
+    {{-- Section for scripting if you have script --}}
+    @yield('scripts')
+</body>
+</html>
+
+```

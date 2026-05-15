@@ -5,7 +5,7 @@ export default function ContactPage() {
     return (
         <section
             id="contact"
-            className="overflow-x-hidden px-5 pt-28 pb-20"
+            className="overflow-x-hidden px-5 pb-24 pt-24"
         >
 
             {/* ── Spotlight effects ── */}

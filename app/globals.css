@@ -91,3 +91,26 @@
 * {
   scroll-behavior: smooth;
 }
+
+[data-rehype-pretty-code-figure] {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin: 1.5rem 0 !important; 
+}
+
+[data-rehype-pretty-code-figure] pre {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.75rem 0 !important; 
+}
+
+pre {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.75rem 0; 
+}

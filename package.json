@@ -29,8 +29,10 @@
     "react-dom": "^18",
     "react-icons": "^5.2.1",
     "react-type-animation": "^3.2.0",
+    "rehype-pretty-code": "^0.14.3",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
+    "shiki": "^4.0.2",
     "simple-icons": "^13.1.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
