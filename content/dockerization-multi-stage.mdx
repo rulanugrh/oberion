@@ -1,0 +1,60 @@
+---
+title: "Docker: What is multi-stage build?"
+description: "description about multistage build on service docker is work"
+created_at: "2025-05-27"
+tags: ["dockerization", "multi-stage", "dockerfile"]
+---
+
+<img src="/blog/dockerization-multistage.png" alt="banner" style={{ borderRadius: '5px' }} />
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" />
+
+Multi-stage is a part of wrapping source code in docker. Multi-stage builds are useful to anyone who has struggled to optimize Dockerfile while keeping them easy to read and maintain.
+However in multi-stage, you can use mutiple `FROM` statements in `Dockerfile`. Each `FROM` instruction can use different base, and each of them begins a new stage of the build. You can selective copy artifact from one stage to another one, this feature useful if you want reduce size image.
+There example of multi-stage build, in any case developer will separate in two stage, that's build stage and runner stage.
+
+```docker
+# SET call image from hub for building binary file
+FROM golang:1.18 AS build
+
+# SET default directory for save file with WORKDIR statements
+WORKDIR /app
+
+# SET COPY statements to save all source code into image in app folder
+COPY . .
+
+# SET RUN for build source code & instal depedency
+RUN go mod tidy
+RUN go build -o server
+
+# SET for call image (you can use any image, prefer alpine base for runner)
+FROM alpine
+WORKDIR /app
+
+# SET to copy binary file from another stage
+COPY --from=build /app/server .
+
+# SET export port to public (base of image port)
+EXPOSE 3000
+
+# SET command line to run image after create container
+CMD ["./server"]
+```
+You only need one Dockerfile and you just run `docker build` no need for separated build script
+```console
+hangteabin@chentaury:~/docker-multistage$ docker build -t multi-stage-go . 
+hangteabin@chentaury:~/docker-multistage$  
+```
+The end result is a tiny image with just binary file inside. How does it work? The second `FROM` instruction starts a new build stage with `alpine` image as base.
+The `COPY --from=build` it's copy the binary file from `build` stage into this new stage and just binary file serve in new build stage. However you can name your stages, it's make developer easy maintain if have issues while deploy application.
+Naming of stages, you can use `AS <Name>` statement to the `FROM` instruction. It's make easy if you want spesific of build image, in any case you can set priority to wrapping or build your docker image, like command below:
+```console
+hangteabin@chentaury:~/docker-multistage$ docker build --target build -t multi-stage-go-target-build . 
+hangteabin@chentaury:~/docker-multistage$  
+```
+That's command docker will build image in stage with name `build`. In scenario this command will be use if you want debug one of one stage before deploy to production. Well, when using multi-stage, you aren't limited to copying from stages you create earlier in ur Dockerfile.
+You can copy file config in another image (call on docker registry) for your application deployment needs. How? you can use same flag while copying file in previous stage `COPY --from=<image>`, nah just like that, you can copy artifact from image to your stage
+```docker
+# example copy artifact from another image
+COPY --form=nginx:latest /etc/nginx/nginx.conf /etc/nginx/nginx.conf
+```
+Of all the approaches we can take in a multistage build, this one is particularly well-suited for long-term implementation. In addition to being useful for testing and debugging, this method is also effective for keeping image sizes manageable by including the necessary dependencies from the very start of the application’s development.
